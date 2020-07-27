@@ -17,7 +17,7 @@ export async function register(payload) {
   return response;
 }
 
-export async function logout() {
+export function logout() {
   if (localStorage.getItem("token")) {
     localStorage.removeItem("token");
   }
