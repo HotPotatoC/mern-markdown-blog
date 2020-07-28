@@ -1,11 +1,14 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {Menu as MenuIcon, X as XIcon} from "react-feather";
+
+import {UserContext} from "../../providers/UserProvider";
 
 import Container from "./Container";
 import Button from "./Button";
 
 export function Navbar() {
+  const {user} = useContext(UserContext);
   const [navVisibility, setNavVisibility] = useState(false);
 
   return (
@@ -18,16 +21,24 @@ export function Navbar() {
             </h1>
           </Link>
           <div className='hidden sm:flex justify-between space-x-2'>
-            <Link to='/login'>
-              <Button extraClasses='bg-white duration-75 hover:bg-gray-200'>
-                Login
+            {user.data && user.loggedIn ? (
+              <Button>
+                Logout
               </Button>
-            </Link>
-            <Link to='/register'>
-              <Button extraClasses='bg-white duration-75 hover:bg-gray-200'>
-                Register
-              </Button>
-            </Link>
+            ) : (
+              <React.Fragment>
+                <Link to='/login'>
+                  <Button>
+                    Login
+                  </Button>
+                </Link>
+                <Link to='/register'>
+                  <Button>
+                    Register
+                  </Button>
+                </Link>
+              </React.Fragment>
+            )}
           </div>
           <div className='block sm:hidden'>
             <button
@@ -40,12 +51,18 @@ export function Navbar() {
         </div>
         <div className={`sm:hidden ${navVisibility ? "block" : "hidden"}`}>
           <div className='flex flex-col space-y-2 mt-4'>
-            <Link to='/login'>
-              <Button extraClasses='w-full'>Login</Button>
-            </Link>
-            <Link to='/register'>
-              <Button extraClasses='w-full'>Register</Button>
-            </Link>
+            {user.data && user.loggedIn ? (
+              <Button extraClasses='w-full'>Logout</Button>
+            ) : (
+              <React.Fragment>
+                <Link to='/login'>
+                  <Button extraClasses='w-full'>Login</Button>
+                </Link>
+                <Link to='/register'>
+                  <Button extraClasses='w-full'>Register</Button>
+                </Link>
+              </React.Fragment>
+            )}
           </div>
         </div>
       </Container>

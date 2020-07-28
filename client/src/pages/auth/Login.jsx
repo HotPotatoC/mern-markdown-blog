@@ -21,7 +21,7 @@ export function Login() {
 
   const {from} = location.state || {from: {pathname: "/"}};
 
-  if (user.loggedIn) {
+  if (user.data && user.loggedIn) {
     history.replace(from);
   }
 

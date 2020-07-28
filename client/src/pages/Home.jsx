@@ -43,7 +43,14 @@ export function Home() {
             <div className='flex flex-row justify-between mb-4'>
               <h1 className='font-bold text-2xl'>Posts</h1>
               <Link to='/new'>
-                <Button extraClasses='bg-blue-500 border-blue-500 text-white duration-75 hover:bg-blue-700 hover:border-blue-700'>
+                <Button
+                  text='white'
+                  background='blue-500'
+                  backgroundHover='blue-700'
+                  border='blue-500'
+                  borderHover='blue-700'
+                  extraClasses='duration-75'
+                >
                   <div className='flex justify-between items-center space-x-4'>
                     <PlusIcon />
                     <span>Write a post</span>

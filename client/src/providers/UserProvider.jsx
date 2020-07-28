@@ -9,7 +9,7 @@ export function UserProvider({children}) {
   const [user, setUser] = useState({
     loggedIn: false,
     token: undefined,
-    user: undefined,
+    data: undefined,
   });
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function UserProvider({children}) {
         setUser({
           loggedIn: true,
           token,
-          user: data,
+          data,
         });
       }
     };
