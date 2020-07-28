@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken'
 import { RequestHandler } from 'express'
 import UserModel from '../models/User'
 import config from '../config'
+import Joi from '@hapi/joi'
 
 dotenv.config()
 
@@ -78,4 +79,17 @@ export const me: RequestHandler = async (req, res) => {
   const payload = res.locals.jwtPayload
 
   res.status(200).json(payload.user)
+}
+
+export const validations = {
+  login: Joi.object({
+    email: Joi.string().required(),
+    password: Joi.string().required(),
+  }),
+  register: Joi.object({
+    displayName: Joi.string(),
+    username: Joi.string().required(),
+    email: Joi.string().required(),
+    password: Joi.string().required(),
+  }),
 }

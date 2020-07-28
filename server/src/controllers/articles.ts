@@ -1,5 +1,6 @@
 import ArticleModel from '../models/Article'
 import { RequestHandler } from 'express'
+import Joi from '@hapi/joi'
 
 export const index: RequestHandler = async (req, res) => {
   const { limit, offset, page } = req.query
@@ -70,3 +71,10 @@ export const store: RequestHandler = async (req, res) => {
 export const update: RequestHandler = async (req, res) => {}
 
 export const destroy: RequestHandler = async (req, res) => {}
+
+export const validations = {
+  store: Joi.object({
+    title: Joi.string().required(),
+    body: Joi.string().required(),
+  }),
+}
