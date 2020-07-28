@@ -23,7 +23,7 @@ export function logout() {
   }
 }
 
-export async function user(token) {
+export async function user() {
   const response = await request.get("/auth/me");
 
   return response;
