@@ -42,12 +42,14 @@ export function Home() {
           <div className='w-full md:w-3/5'>
             <div className='flex flex-row justify-between mb-4'>
               <h1 className='font-bold text-2xl'>Posts</h1>
-              <Button extraClasses='bg-blue-500 border-blue-500 text-white duration-75 hover:bg-blue-700 hover:border-blue-700'>
-                <div className='flex justify-between items-center space-x-4'>
-                  <PlusIcon />
-                  <span>Write a post</span>
-                </div>
-              </Button>
+              <Link to='/new'>
+                <Button extraClasses='bg-blue-500 border-blue-500 text-white duration-75 hover:bg-blue-700 hover:border-blue-700'>
+                  <div className='flex justify-between items-center space-x-4'>
+                    <PlusIcon />
+                    <span>Write a post</span>
+                  </div>
+                </Button>
+              </Link>
             </div>
             {articles.map((article) => (
               <ArticleCard

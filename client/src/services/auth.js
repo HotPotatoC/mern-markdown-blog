@@ -22,3 +22,9 @@ export function logout() {
     localStorage.removeItem("token");
   }
 }
+
+export async function user(token) {
+  const response = await request.get("/auth/me");
+
+  return response;
+}

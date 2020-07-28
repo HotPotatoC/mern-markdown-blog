@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import Container from "./Container";
-import Button from "./Button";
 import {Link} from "react-router-dom";
 import {Menu as MenuIcon, X as XIcon} from "react-feather";
+
+import Container from "./Container";
+import Button from "./Button";
 
 export function Navbar() {
   const [navVisibility, setNavVisibility] = useState(false);

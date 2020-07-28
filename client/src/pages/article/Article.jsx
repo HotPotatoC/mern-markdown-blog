@@ -1,24 +1,26 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
-import ReactMarkdown from "react-markdown";
+import Moment from "react-moment";
+
+import "highlight.js/styles/atom-one-dark.css";
 
 import request from "../../services/api";
 
+import Markdown from "../../components/Markdown";
+
 import Navbar from "../../components/common/Navbar";
 import Container from "../../components/common/Container";
-import Moment from "react-moment";
 
 export function Article() {
   const {slug} = useParams();
   const [article, setArticle] = useState({});
 
-  async function fetchArticle() {
-    const {data} = await request.get(`/articles/${slug}`);
-
-    setArticle(data);
-  }
-
   useEffect(() => {
+    const fetchArticle = async () => {
+      const {data} = await request.get(`/articles/${slug}`);
+
+      setArticle(data);
+    };
     fetchArticle();
   }, []);
 
@@ -27,8 +29,10 @@ export function Article() {
       <Navbar />
       <Container extraClasses='pt-32'>
         <div className='flex flex-wrap justify-center'>
-          <div className='w-full md:w-2/4'>
-            <h1 className='font-bold text-6xl'>{article.title}</h1>
+          <div className='w-full md:w-2/3'>
+            <h1 className='font-bold text-4xl md:text-6xl leading-tight'>
+              {article.title}
+            </h1>
             <div className='flex justify-start space-x-4 mb-10'>
               <p>By {article.user?.displayName}</p>
               <span>—</span>
@@ -36,7 +40,7 @@ export function Article() {
                 <Moment format='MMMM YYYY'>{article.createdAt}</Moment>
               </p>
             </div>
-            <ReactMarkdown source={article.body} />
+            <Markdown source={article.body} />
           </div>
         </div>
       </Container>
