@@ -13,6 +13,7 @@ import Container from "../../components/common/Container";
 
 export function Article() {
   const {slug} = useParams();
+  const [loading, setLoading] = useState(true);
   const [article, setArticle] = useState({});
 
   useEffect(() => {
@@ -20,6 +21,7 @@ export function Article() {
       const {data} = await request.get(`/articles/${slug}`);
 
       setArticle(data);
+      setLoading(false);
     };
     fetchArticle();
   }, [slug]);
@@ -30,17 +32,23 @@ export function Article() {
       <Container extraClasses='pt-32'>
         <div className='flex flex-wrap justify-center'>
           <div className='w-full md:w-2/3'>
-            <h1 className='font-bold text-4xl md:text-6xl leading-tight'>
-              {article.title}
-            </h1>
-            <div className='flex justify-start space-x-4 mb-10'>
-              <p>By {article.user?.displayName}</p>
-              <span>—</span>
-              <p>
-                <Moment format='MMMM YYYY'>{article.createdAt}</Moment>
-              </p>
-            </div>
-            <Markdown source={article.body} />
+            {!loading ? (
+              <React.Fragment>
+                <h1 className='font-bold text-4xl md:text-6xl leading-tight'>
+                  {article.title}
+                </h1>
+                <div className='flex justify-start space-x-4 mb-10'>
+                  <p>By {article.user?.displayName}</p>
+                  <span>—</span>
+                  <p>
+                    <Moment format='MMMM YYYY'>{article.createdAt}</Moment>
+                  </p>
+                </div>
+                <Markdown source={article.body} />
+              </React.Fragment>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </Container>

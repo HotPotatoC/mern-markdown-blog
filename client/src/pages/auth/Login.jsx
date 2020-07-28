@@ -1,5 +1,7 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {Link, useHistory, useLocation} from "react-router-dom";
+
+import {UserContext} from "../../providers/UserProvider";
 
 import * as auth from "../../services/auth";
 
@@ -8,6 +10,8 @@ import Button from "../../components/common/Button";
 import Container from "../../components/common/Container";
 
 export function Login() {
+  const {user} = useContext(UserContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({status: false, message: ""});
@@ -16,6 +20,10 @@ export function Login() {
   const location = useLocation();
 
   const {from} = location.state || {from: {pathname: "/"}};
+
+  if (user.loggedIn) {
+    history.replace(from);
+  }
 
   async function login(event) {
     event.preventDefault();

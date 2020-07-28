@@ -1,18 +1,30 @@
-import React, {useState} from "react";
-import {Link, Redirect} from "react-router-dom";
+import React, {useState, useContext} from "react";
+import {Link, Redirect, useLocation, useHistory} from "react-router-dom";
 
 import * as auth from "../../services/auth";
 
 import Navbar from "../../components/common/Navbar";
 import Button from "../../components/common/Button";
 import Container from "../../components/common/Container";
+import {UserContext} from "../../providers/UserProvider";
 
 export function Login() {
+  const {user} = useContext(UserContext);
+
   const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({status: false, message: ""});
+
+  const history = useHistory();
+  const location = useLocation();
+
+  const {from} = location.state || {from: {pathname: "/"}};
+
+  if (user.loggedIn) {
+    history.replace(from);
+  }
 
   async function register(event) {
     event.preventDefault();
@@ -29,7 +41,7 @@ export function Login() {
         return <Redirect to='/login' />;
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setError({
         status: true,
         message: error.response.data.message,
