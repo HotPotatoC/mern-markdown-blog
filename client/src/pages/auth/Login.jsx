@@ -1,13 +1,13 @@
 import React, {useState, useContext} from "react";
-import {Link, useHistory, useLocation} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 import {UserContext} from "../../providers/UserProvider";
 
 import * as auth from "../../services/auth";
 
-import Navbar from "../../components/common/Navbar";
-import Button from "../../components/common/Button";
-import Container from "../../components/common/Container";
+import Navbar from "../../components/Navbar";
+import Button from "../../components/Button";
+import Container from "../../components/Container";
 
 export function Login() {
   const {user} = useContext(UserContext);

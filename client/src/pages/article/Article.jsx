@@ -8,8 +8,8 @@ import request from "../../services/api";
 
 import Markdown from "../../components/Markdown";
 
-import Navbar from "../../components/common/Navbar";
-import Container from "../../components/common/Container";
+import Navbar from "../../components/Navbar";
+import Container from "../../components/Container";
 
 export function Article() {
   const {slug} = useParams();

@@ -8,9 +8,9 @@ import request from "../../services/api";
 
 import Markdown from "../../components/Markdown";
 
-import Navbar from "../../components/common/Navbar";
-import Container from "../../components/common/Container";
-import Button from "../../components/common/Button";
+import Navbar from "../../components/Navbar";
+import Container from "../../components/Container";
+import Button from "../../components/Button";
 
 export function CreateArticle() {
   const {user} = useContext(UserContext);

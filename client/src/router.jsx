@@ -3,13 +3,10 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 import UserProvider from "./providers/UserProvider";
 
-import Home from "./pages/Home";
+import {Home} from "./pages/home";
+import {Login, Register} from "./pages/auth";
+import {Article, CreateArticle} from "./pages/article";
 
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
-
-import Article from "./pages/article/Article";
-import CreateArticle from "./pages/article/CreateArticle";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 
 export function Router() {

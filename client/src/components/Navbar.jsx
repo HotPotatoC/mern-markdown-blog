@@ -2,9 +2,9 @@ import React, {useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {Menu as MenuIcon, X as XIcon} from "react-feather";
 
-import {UserContext} from "../../providers/UserProvider";
+import {UserContext} from "../providers/UserProvider";
 
-import * as auth from "../../services/auth";
+import * as auth from "../services/auth";
 
 import Container from "./Container";
 import Button from "./Button";

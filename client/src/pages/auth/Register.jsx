@@ -1,14 +1,14 @@
 import React, {useState, useContext} from "react";
-import {Link, Redirect, useLocation, useHistory} from "react-router-dom";
+import {Link, useLocation, useHistory} from "react-router-dom";
 
 import * as auth from "../../services/auth";
 
-import Navbar from "../../components/common/Navbar";
-import Button from "../../components/common/Button";
-import Container from "../../components/common/Container";
+import Navbar from "../../components/Navbar";
+import Button from "../../components/Button";
+import Container from "../../components/Container";
 import {UserContext} from "../../providers/UserProvider";
 
-export function Login() {
+export function Register() {
   const {user} = useContext(UserContext);
 
   const [displayName, setDisplayName] = useState("");
@@ -121,4 +121,4 @@ export function Login() {
   );
 }
 
-export default Login;
+export default Register;
