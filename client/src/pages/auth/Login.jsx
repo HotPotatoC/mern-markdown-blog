@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {Link, useHistory, useLocation} from "react-router-dom";
 
-import request from "../../services/api";
 import * as auth from "../../services/auth";
 
 import Navbar from "../../components/common/Navbar";

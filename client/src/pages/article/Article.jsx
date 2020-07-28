@@ -22,7 +22,7 @@ export function Article() {
       setArticle(data);
     };
     fetchArticle();
-  }, []);
+  }, [slug]);
 
   return (
     <React.Fragment>
