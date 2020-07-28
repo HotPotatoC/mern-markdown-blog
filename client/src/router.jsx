@@ -21,7 +21,7 @@ export function Router() {
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <AuthenticatedRoute exact path='/new/' component={CreateArticle} />
-          <Route exact path='/article/:slug' component={Article} />
+          <Route exact path='/:username/article/:slug' component={Article} />
         </Switch>
       </UserProvider>
     </BrowserRouter>

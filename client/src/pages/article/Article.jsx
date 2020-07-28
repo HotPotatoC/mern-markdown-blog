@@ -31,7 +31,7 @@ export function Article() {
       <Navbar />
       <Container extraClasses='pt-32'>
         <div className='flex flex-wrap justify-center'>
-          <div className='w-full md:w-2/3'>
+          <div className='w-full md:w-2/3 p-6 bg-white shadow rounded break-words'>
             {!loading ? (
               <React.Fragment>
                 <h1 className='font-bold text-4xl md:text-6xl leading-tight'>

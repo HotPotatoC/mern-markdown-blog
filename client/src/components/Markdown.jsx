@@ -7,6 +7,7 @@ export default function Markdown({source}) {
     <ReactMarkdown
       source={source}
       renderers={{
+        blockquote: BlockQuote,
         code: Code,
         inlineCode: InlineCode,
         heading: Heading,
@@ -44,15 +45,15 @@ export function Heading({children, level}) {
       break;
   }
   return (
-    <h1 className={`mt-4 mb-2 font-bold leading-tight ${size}`}>{children}</h1>
+    <h1 className={`mt-4 mb-2 font-medium leading-tight ${size}`}>{children}</h1>
   );
 }
 
 export function List({children, ordered}) {
   return ordered ? (
-    <ol className='my-2 list-inside list-decimal'>{children}</ol>
+    <ol className='ml-2 my-2 list-inside list-decimal'>{children}</ol>
   ) : (
-    <ul className='my-2 list-inside list-disc'>{children}</ul>
+    <ul className='ml-2 my-2 list-inside list-disc'>{children}</ul>
   );
 }
 
@@ -71,9 +72,21 @@ export function Code({language, value}) {
 }
 
 export function InlineCode({value}) {
-  return <code className='px-2 text-gray-700 shadow border rounded bg-white'>{value}</code>;
+  return (
+    <code className='px-2 text-gray-700 shadow border rounded bg-white'>
+      {value}
+    </code>
+  );
 }
 
 export function Image({alt, src}) {
   return <img className='my-4 rounded' src={src} alt={alt} />;
+}
+
+export function BlockQuote({children}) {
+  return (
+    <blockquote className='border-l-4 border-gray-600 pl-6'>
+      {children}
+    </blockquote>
+  );
 }

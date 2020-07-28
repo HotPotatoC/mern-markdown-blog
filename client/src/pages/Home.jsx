@@ -11,9 +11,9 @@ import Container from "../components/common/Container";
 
 function ArticleCard({title, slug, user, createdAt}) {
   return (
-    <div className='mb-4 p-6 bg-white shadow-sm border rounded'>
+    <div className='mb-4 p-6 bg-white shadow-sm border rounded break-words'>
       <small className='text-gray-600'>{user.displayName}</small>
-      <Link to={`article/${slug}`}>
+      <Link to={`/${user.username}/article/${slug}`}>
         <h1 className='font-semibold text-2xl hover:text-blue-500'>{title}</h1>
       </Link>
       <Moment format='MMMM YYYY'>{createdAt}</Moment>
