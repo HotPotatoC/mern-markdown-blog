@@ -9,9 +9,11 @@ export function Button({
   extraClasses,
   text,
   nativeType,
+  onClick,
 }) {
   return (
     <button
+      onClick={onClick}
       type={nativeType}
       className={`px-6 py-2 text-${text || "black"} bg-${
         background || "white"

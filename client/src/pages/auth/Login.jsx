@@ -17,12 +17,9 @@ export function Login() {
   const [error, setError] = useState({status: false, message: ""});
 
   const history = useHistory();
-  const location = useLocation();
-
-  const {from} = location.state || {from: {pathname: "/"}};
 
   if (user.data && user.loggedIn) {
-    history.replace(from);
+    history.replace("/");
   }
 
   async function login(event) {
@@ -32,7 +29,7 @@ export function Login() {
       const {data} = await auth.login(email, password);
       localStorage.setItem("token", data.token);
 
-      history.replace(from);
+      history.push("/");
     } catch (err) {
       console.log(error);
       setError({

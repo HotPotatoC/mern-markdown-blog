@@ -4,12 +4,24 @@ import {Menu as MenuIcon, X as XIcon} from "react-feather";
 
 import {UserContext} from "../../providers/UserProvider";
 
+import * as auth from "../../services/auth";
+
 import Container from "./Container";
 import Button from "./Button";
 
 export function Navbar() {
-  const {user} = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext);
   const [navVisibility, setNavVisibility] = useState(false);
+
+  function logout() {
+    auth.logout();
+
+    setUser({
+      loggedIn: false,
+      token: undefined,
+      data: undefined,
+    });
+  }
 
   return (
     <div className='w-full fixed top-0 py-2 bg-white shadow-sm border-b'>
@@ -22,20 +34,14 @@ export function Navbar() {
           </Link>
           <div className='hidden sm:flex justify-between space-x-2'>
             {user.data && user.loggedIn ? (
-              <Button>
-                Logout
-              </Button>
+              <Button onClick={logout}>Logout</Button>
             ) : (
               <React.Fragment>
                 <Link to='/login'>
-                  <Button>
-                    Login
-                  </Button>
+                  <Button>Login</Button>
                 </Link>
                 <Link to='/register'>
-                  <Button>
-                    Register
-                  </Button>
+                  <Button>Register</Button>
                 </Link>
               </React.Fragment>
             )}

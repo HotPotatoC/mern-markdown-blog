@@ -22,7 +22,7 @@ export function Login() {
 
   const {from} = location.state || {from: {pathname: "/"}};
 
-  if (user.loggedIn) {
+  if (user.data && user.loggedIn) {
     history.replace(from);
   }
 
@@ -38,7 +38,7 @@ export function Login() {
       });
 
       if (status === 200) {
-        return <Redirect to='/login' />;
+        history.push("/login");
       }
     } catch (error) {
       console.log(error);
