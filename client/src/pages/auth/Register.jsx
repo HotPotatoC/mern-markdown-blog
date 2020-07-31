@@ -6,7 +6,7 @@ import * as auth from "../../services/auth";
 import Navbar from "../../components/Navbar";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
-import {UserContext} from "../../providers/UserContextProvider";
+import {UserContext} from "../../contexts/UserContextProvider";
 
 export function Register() {
   const {user} = useContext(UserContext);

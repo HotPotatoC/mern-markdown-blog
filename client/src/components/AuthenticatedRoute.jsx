@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {Route, Redirect} from "react-router-dom";
 
-import {UserContext} from "../providers/UserContextProvider";
+import {UserContext} from "../contexts/UserContextProvider";
 
 export function AuthenticatedRoute({component: Component, ...rest}) {
   const {user} = useContext(UserContext);

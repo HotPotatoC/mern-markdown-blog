@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {Menu as MenuIcon, X as XIcon} from "react-feather";
 
-import {UserContext} from "../providers/UserContextProvider";
+import {UserContext} from "../contexts/UserContextProvider";
 
 import * as auth from "../services/auth";
 

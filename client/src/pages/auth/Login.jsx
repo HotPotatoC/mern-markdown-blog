@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import {Link, useHistory} from "react-router-dom";
 
-import {UserContext} from "../../providers/UserContextProvider";
+import {UserContext} from "../../contexts/UserContextProvider";
 
 import * as auth from "../../services/auth";
 
