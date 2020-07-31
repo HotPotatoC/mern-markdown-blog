@@ -13,14 +13,14 @@ export function Navbar() {
   const {user, setUser} = useContext(UserContext);
   const [navVisibility, setNavVisibility] = useState(false);
 
-  function logout() {
+  const logout = () => {
     auth.logout();
 
     setUser({
       token: undefined,
       data: undefined,
     });
-  }
+  };
 
   return (
     <div className='w-full fixed top-0 py-2 bg-white shadow-sm border-b'>
@@ -32,9 +32,7 @@ export function Navbar() {
             </h1>
           </Link>
           <div className='hidden sm:flex justify-between space-x-2'>
-            {user.data && (
-              <Button onClick={logout}>Logout</Button>
-            )}
+            {user.data && <Button onClick={logout}>Logout</Button>}
             {!user.data && (
               <React.Fragment>
                 <Link to='/login'>
@@ -57,9 +55,7 @@ export function Navbar() {
         </div>
         <div className={`sm:hidden ${navVisibility ? "block" : "hidden"}`}>
           <div className='flex flex-col space-y-2 mt-4'>
-            {user.data && (
-              <Button extraClasses='w-full'>Logout</Button>
-            )}
+            {user.data && <Button extraClasses='w-full'>Logout</Button>}
             {!user.data && (
               <React.Fragment>
                 <Link to='/login'>
