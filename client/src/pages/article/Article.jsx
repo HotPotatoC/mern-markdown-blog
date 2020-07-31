@@ -12,19 +12,19 @@ import Navbar from "../../components/Navbar";
 import Container from "../../components/Container";
 
 export function Article() {
-  const {slug} = useParams();
+  const {username, slug} = useParams();
   const [loading, setLoading] = useState(true);
   const [article, setArticle] = useState({});
 
   useEffect(() => {
     const fetchArticle = async () => {
-      const {data} = await request.get(`/articles/${slug}`);
+      const {data} = await request.get(`/users/${username}/articles/${slug}`);
 
       setArticle(data);
       setLoading(false);
     };
     fetchArticle();
-  }, [slug]);
+  }, [username, slug]);
 
   return (
     <React.Fragment>
