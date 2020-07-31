@@ -93,7 +93,7 @@ The ReactJs application will run on _http://localhost:3000_ and the Express appl
 
 | Package Name         | Description                                                                     | Version |
 | -------------------- | ------------------------------------------------------------------------------- | ------- |
-| [@hapi/joi](https://github.com/sideway/joi)            | Object schema validation                                                        | ^17.1.1 |
+| [joi](https://github.com/sideway/joi)            | Object schema validation                                                        | ^17.1.1 |
 | [@typegoose/typegoose](https://typegoose.github.io/typegoose/) | Define Mongoose models using TypeScript classes                                 | ^7.3.0  |
 | [bcrypt](https://github.com/kelektiv/node.bcrypt.js)               | A bcrypt library for NodeJS.                                                    | ^5.0.0  |
 | [cors](https://github.com/expressjs/cors)                 | Node.js CORS middleware                                                         | ^2.8.5  |

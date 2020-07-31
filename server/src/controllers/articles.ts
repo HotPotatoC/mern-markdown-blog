@@ -1,6 +1,6 @@
 import ArticleModel from '../models/Article'
 import { RequestHandler } from 'express'
-import Joi from '@hapi/joi'
+import Joi from 'joi'
 
 export const index: RequestHandler = async (req, res) => {
   const { limit, offset, page } = req.query

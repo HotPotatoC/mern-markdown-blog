@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import { RequestHandler } from 'express'
 import UserModel from '../models/User'
 import config from '../config'
-import Joi from '@hapi/joi'
+import Joi from 'joi'
 
 dotenv.config()
 
