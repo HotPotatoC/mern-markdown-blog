@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import Moment from "react-moment";
 
 import "highlight.js/styles/atom-one-dark.css";
@@ -10,6 +10,7 @@ import Markdown from "../../components/Markdown";
 
 import Navbar from "../../components/Navbar";
 import Container from "../../components/Container";
+import {ChevronLeft as ChevronLeftIcon} from "react-feather";
 
 export function Article() {
   const {username, slug} = useParams();
@@ -31,9 +32,17 @@ export function Article() {
       <Navbar />
       <Container extraClasses='pt-32'>
         <div className='flex flex-wrap justify-center'>
-          <div className='w-full md:w-2/3 p-6 bg-white shadow rounded break-words'>
-            {!loading ? (
-              <React.Fragment>
+          {!loading ? (
+            <React.Fragment>
+              <div className='w-full md:w-2/3 mb-6'>
+                <div className='flex text-gray-600'>
+                  <Link to='/' className='flex justify-start space-x-4'>
+                    <ChevronLeftIcon />
+                    <p className='hover:underline'>Go back home</p>
+                  </Link>
+                </div>
+              </div>
+              <div className='w-full md:w-2/3 p-6 bg-white shadow rounded break-words'>
                 <h1 className='font-bold text-4xl md:text-6xl leading-tight'>
                   {article.title}
                 </h1>
@@ -45,11 +54,11 @@ export function Article() {
                   </p>
                 </div>
                 <Markdown source={article.body} />
-              </React.Fragment>
-            ) : (
-              ""
-            )}
-          </div>
+              </div>
+            </React.Fragment>
+          ) : (
+            ""
+          )}
         </div>
       </Container>
     </React.Fragment>
