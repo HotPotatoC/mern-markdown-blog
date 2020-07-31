@@ -8,9 +8,10 @@ import * as auth from "../../services/auth";
 import Navbar from "../../components/Navbar";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
+import {LOGIN_SUCCESS} from "../../reducers/types";
 
 export function Login() {
-  const {user} = useContext(UserContext);
+  const {user, dispatch} = useContext(UserContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +19,7 @@ export function Login() {
 
   const history = useHistory();
 
-  if (user.data) {
+  if (user.isAuthenticated) {
     history.replace("/");
   }
 
@@ -28,6 +29,11 @@ export function Login() {
     try {
       const {data} = await auth.login(email, password);
       localStorage.setItem("token", data.token);
+
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: {token: data.token, data: data.user},
+      });
 
       history.push("/");
     } catch (err) {

@@ -6,20 +6,19 @@ import {UserContext} from "../contexts/UserContextProvider";
 
 import * as auth from "../services/auth";
 
+import {LOGOUT} from "../reducers/types";
+
 import Container from "./Container";
 import Button from "./Button";
 
 export function Navbar() {
-  const {user, setUser} = useContext(UserContext);
+  const {user, dispatch} = useContext(UserContext);
   const [navVisibility, setNavVisibility] = useState(false);
 
   const logout = () => {
     auth.logout();
 
-    setUser({
-      token: undefined,
-      data: undefined,
-    });
+    dispatch({type: LOGOUT});
   };
 
   return (
@@ -32,8 +31,8 @@ export function Navbar() {
             </h1>
           </Link>
           <div className='hidden sm:flex justify-between space-x-2'>
-            {user.data && <Button onClick={logout}>Logout</Button>}
-            {!user.data && (
+            {user.isAuthenticated && <Button onClick={logout}>Logout</Button>}
+            {!user.isAuthenticated && (
               <React.Fragment>
                 <Link to='/login'>
                   <Button>Login</Button>
@@ -55,8 +54,10 @@ export function Navbar() {
         </div>
         <div className={`sm:hidden ${navVisibility ? "block" : "hidden"}`}>
           <div className='flex flex-col space-y-2 mt-4'>
-            {user.data && <Button extraClasses='w-full'>Logout</Button>}
-            {!user.data && (
+            {user.isAuthenticated && (
+              <Button extraClasses='w-full'>Logout</Button>
+            )}
+            {!user.isAuthenticated && (
               <React.Fragment>
                 <Link to='/login'>
                   <Button extraClasses='w-full'>Login</Button>

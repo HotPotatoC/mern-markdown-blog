@@ -1,15 +1,20 @@
-import React, {createContext, useState, useEffect} from "react";
+import React, {createContext, useEffect, useReducer} from "react";
 
 import request from "../services/api";
 import * as auth from "../services/auth";
 
+import authReducer from "../reducers/authReducer";
+import {VERIFY_AUTH_SUCCESS, VERIFY_AUTH_FAILURE} from "../reducers/types";
+
 export const UserContext = createContext(null);
 
 export function UserContextProvider({children}) {
-  const [user, setUser] = useState({
+  const initialState = {
     token: undefined,
     data: undefined,
-  });
+  };
+
+  const [user, dispatch] = useReducer(authReducer, initialState);
 
   useEffect(() => {
     const verifyAuth = async () => {
@@ -19,15 +24,9 @@ export function UserContextProvider({children}) {
       try {
         const {data} = await auth.user(token);
 
-        setUser({
-          token,
-          data,
-        });
+        dispatch({type: VERIFY_AUTH_SUCCESS, payload: {token, data}});
       } catch {
-        setUser({
-          token: undefined,
-          data: undefined,
-        });
+        dispatch({type: VERIFY_AUTH_FAILURE});
       }
     };
 
@@ -35,7 +34,7 @@ export function UserContextProvider({children}) {
   }, []);
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserContext.Provider value={{user, dispatch}}>
       {children}
     </UserContext.Provider>
   );
