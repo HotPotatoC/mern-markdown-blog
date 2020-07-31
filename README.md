@@ -30,13 +30,13 @@ $ docker-compose -v
 If you already have docker-compose installed, Build the containers
 
 ```bash
-docker-compose build
+$ docker-compose build
 ```
 
 Run the application
 
 ```bash
-docker-compose up -d
+$ docker-compose up -d
 ```
 
 The ReactJs application will run on _http://localhost:3000_ and the Express application will run on _http://localhost:5000_
@@ -44,7 +44,7 @@ The ReactJs application will run on _http://localhost:3000_ and the Express appl
 To stop the application run
 
 ```bash
-docker-compose stop
+$ docker-compose stop
 ```
 
 ## Running without docker-compose
