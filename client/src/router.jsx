@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 import UserContextProvider from "./contexts/UserContextProvider";
 
+import NotFound from "./pages/NotFound";
 import {Home} from "./pages/home";
 import {Login, Register} from "./pages/auth";
 import {Article, CreateArticle} from "./pages/article";
@@ -19,6 +20,7 @@ export function Router() {
           <Route exact path='/register' component={Register} />
           <AuthenticatedRoute exact path='/new/' component={CreateArticle} />
           <Route exact path='/:username/article/:slug' component={Article} />
+          <Route component={NotFound} />
         </Switch>
       </UserContextProvider>
     </BrowserRouter>
