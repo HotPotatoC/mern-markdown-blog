@@ -31,8 +31,8 @@ export function Navbar() {
             </h1>
           </Link>
           <div className='hidden sm:flex justify-between space-x-2'>
-            {user.isAuthenticated && <Button onClick={logout}>Logout</Button>}
-            {!user.isAuthenticated && (
+            {user.data && user.isAuthenticated && <Button onClick={logout}>Logout</Button>}
+            {!user.data && !user.isAuthenticated && (
               <React.Fragment>
                 <Link to='/login'>
                   <Button>Login</Button>

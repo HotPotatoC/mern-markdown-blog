@@ -15,14 +15,14 @@ export function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState({status: false, message: ""});
+  const [error, setError] = useState("");
 
   const history = useHistory();
   const location = useLocation();
 
   const {from} = location.state || {from: {pathname: "/"}};
 
-  if (user.data) {
+  if (user.isAuthenticated) {
     history.replace(from);
   }
 
@@ -40,12 +40,8 @@ export function Register() {
       if (status === 200) {
         history.push("/login");
       }
-    } catch (error) {
-      console.log(error);
-      setError({
-        status: true,
-        message: error.response.data.message,
-      });
+    } catch (err) {
+      setError(err.response.data.message);
     }
   }
 
@@ -98,8 +94,8 @@ export function Register() {
                     required
                   />
                 </div>
-                {error.status && error.message ? (
-                  <small className='mt-2 text-red-400'>{error.message}</small>
+                {error ? (
+                  <small className='mt-2 text-red-400'>{error}</small>
                 ) : (
                   ""
                 )}

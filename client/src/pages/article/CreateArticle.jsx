@@ -14,6 +14,7 @@ import Button from "../../components/Button";
 
 export function CreateArticle() {
   const {user} = useContext(UserContext);
+
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [error, setError] = useState("");

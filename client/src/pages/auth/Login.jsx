@@ -15,7 +15,7 @@ export function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState({status: false, message: ""});
+  const [error, setError] = useState("");
 
   const history = useHistory();
 
@@ -37,11 +37,7 @@ export function Login() {
 
       history.push("/");
     } catch (err) {
-      console.log(error);
-      setError({
-        status: true,
-        message: err.response.data.message,
-      });
+      setError(err.response.data.message);
     }
   }
 
@@ -72,8 +68,8 @@ export function Login() {
                     onChange={(event) => setPassword(event.target.value)}
                   />
                 </div>
-                {error.status && error.message ? (
-                  <small className='mt-2 text-red-400'>{error.message}</small>
+                {error ? (
+                  <small className='mt-2 text-red-400'>{error}</small>
                 ) : (
                   ""
                 )}
