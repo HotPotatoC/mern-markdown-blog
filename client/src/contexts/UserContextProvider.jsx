@@ -10,8 +10,9 @@ export const UserContext = createContext(null);
 
 export function UserContextProvider({children}) {
   const initialState = {
-    token: undefined,
-    data: undefined,
+    token: localStorage.getItem("token"),
+    data: null,
+    isAuthenticated: null,
   };
 
   const [user, dispatch] = useReducer(authReducer, initialState);
@@ -24,7 +25,7 @@ export function UserContextProvider({children}) {
       try {
         const {data} = await auth.user(token);
 
-        dispatch({type: VERIFY_AUTH_SUCCESS, payload: {token, data}});
+        dispatch({type: VERIFY_AUTH_SUCCESS, payload: data.user});
       } catch {
         dispatch({type: VERIFY_AUTH_FAILURE});
       }

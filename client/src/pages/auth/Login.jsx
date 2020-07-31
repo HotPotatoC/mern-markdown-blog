@@ -32,7 +32,7 @@ export function Login() {
 
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: {token: data.token, data: data.user},
+        payload: data.user,
       });
 
       history.push("/");

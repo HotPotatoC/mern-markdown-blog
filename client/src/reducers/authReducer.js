@@ -12,14 +12,13 @@ export const authReducer = (state, {type, payload}) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        data: payload.data,
-        token: payload.token,
+        data: payload,
         isAuthenticated: true,
       };
     case VERIFY_AUTH_FAILURE:
     case LOGIN_FAILURE:
     case LOGOUT:
-      return {...state, data: undefined, token: undefined};
+      return {...state, data: null, isAuthenticated: false};
     default:
       return state;
   }
