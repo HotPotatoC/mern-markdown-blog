@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import {Link, useHistory} from "react-router-dom";
 
-import {UserContext} from "../../providers/UserProvider";
+import {UserContext} from "../../providers/UserContextProvider";
 
 import * as auth from "../../services/auth";
 
@@ -18,7 +18,7 @@ export function Login() {
 
   const history = useHistory();
 
-  if (user.data && user.loggedIn) {
+  if (user.data) {
     history.replace("/");
   }
 

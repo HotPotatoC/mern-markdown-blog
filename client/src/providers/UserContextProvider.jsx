@@ -5,9 +5,8 @@ import * as auth from "../services/auth";
 
 export const UserContext = createContext(null);
 
-export function UserProvider({children}) {
+export function UserContextProvider({children}) {
   const [user, setUser] = useState({
-    loggedIn: false,
     token: undefined,
     data: undefined,
   });
@@ -17,13 +16,17 @@ export function UserProvider({children}) {
       const token = localStorage.getItem("token") ?? "";
       request.defaults.headers["Authorization"] = `Bearer ${token}`;
 
-      const {data, status} = await auth.user(token);
+      try {
+        const {data} = await auth.user(token);
 
-      if (data && status === 200) {
         setUser({
-          loggedIn: true,
           token,
           data,
+        });
+      } catch {
+        setUser({
+          token: undefined,
+          data: undefined,
         });
       }
     };
@@ -38,4 +41,4 @@ export function UserProvider({children}) {
   );
 }
 
-export default UserProvider;
+export default UserContextProvider;

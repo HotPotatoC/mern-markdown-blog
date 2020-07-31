@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {Route, Redirect} from "react-router-dom";
 
-import {UserContext} from "../providers/UserProvider";
+import {UserContext} from "../providers/UserContextProvider";
 
 export function AuthenticatedRoute({component: Component, ...rest}) {
   const {user} = useContext(UserContext);
@@ -10,7 +10,7 @@ export function AuthenticatedRoute({component: Component, ...rest}) {
     <Route
       {...rest}
       render={(props) =>
-        user.data && user.loggedIn ? (
+        user.data ? (
           <Component {...props} />
         ) : (
           <Redirect to={{pathname: "/login", state: {from: props.location}}} />

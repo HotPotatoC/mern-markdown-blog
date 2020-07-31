@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 
-import UserProvider from "./providers/UserProvider";
+import UserContextProvider from "./providers/UserContextProvider";
 
 import {Home} from "./pages/home";
 import {Login, Register} from "./pages/auth";
@@ -12,7 +12,7 @@ import AuthenticatedRoute from "./components/AuthenticatedRoute";
 export function Router() {
   return (
     <BrowserRouter>
-      <UserProvider>
+      <UserContextProvider>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
@@ -20,7 +20,7 @@ export function Router() {
           <AuthenticatedRoute exact path='/new/' component={CreateArticle} />
           <Route exact path='/:username/article/:slug' component={Article} />
         </Switch>
-      </UserProvider>
+      </UserContextProvider>
     </BrowserRouter>
   );
 }

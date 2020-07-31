@@ -6,7 +6,7 @@ import * as auth from "../../services/auth";
 import Navbar from "../../components/Navbar";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
-import {UserContext} from "../../providers/UserProvider";
+import {UserContext} from "../../providers/UserContextProvider";
 
 export function Register() {
   const {user} = useContext(UserContext);
@@ -22,7 +22,7 @@ export function Register() {
 
   const {from} = location.state || {from: {pathname: "/"}};
 
-  if (user.data && user.loggedIn) {
+  if (user.data) {
     history.replace(from);
   }
 

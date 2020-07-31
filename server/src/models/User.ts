@@ -29,7 +29,7 @@ function findByUsername(
 }
 
 @pre<User>('save', async function (next) {
-  if (!this.isModified(this.password)) {
+  if (this.isModified(this.password)) {
     return next()
   }
 

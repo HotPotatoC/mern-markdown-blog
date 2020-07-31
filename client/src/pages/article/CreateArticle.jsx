@@ -2,7 +2,7 @@ import React, {useState, useContext} from "react";
 import {useHistory} from "react-router-dom";
 import Moment from "react-moment";
 
-import {UserContext} from "../../providers/UserProvider";
+import {UserContext} from "../../providers/UserContextProvider";
 
 import request from "../../services/api";
 

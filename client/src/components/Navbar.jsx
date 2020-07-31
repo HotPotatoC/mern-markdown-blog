@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {Menu as MenuIcon, X as XIcon} from "react-feather";
 
-import {UserContext} from "../providers/UserProvider";
+import {UserContext} from "../providers/UserContextProvider";
 
 import * as auth from "../services/auth";
 
@@ -17,7 +17,6 @@ export function Navbar() {
     auth.logout();
 
     setUser({
-      loggedIn: false,
       token: undefined,
       data: undefined,
     });
@@ -33,9 +32,10 @@ export function Navbar() {
             </h1>
           </Link>
           <div className='hidden sm:flex justify-between space-x-2'>
-            {user.data && user.loggedIn ? (
+            {user.data && (
               <Button onClick={logout}>Logout</Button>
-            ) : (
+            )}
+            {!user.data && (
               <React.Fragment>
                 <Link to='/login'>
                   <Button>Login</Button>
@@ -57,9 +57,10 @@ export function Navbar() {
         </div>
         <div className={`sm:hidden ${navVisibility ? "block" : "hidden"}`}>
           <div className='flex flex-col space-y-2 mt-4'>
-            {user.data && user.loggedIn ? (
+            {user.data && (
               <Button extraClasses='w-full'>Logout</Button>
-            ) : (
+            )}
+            {!user.data && (
               <React.Fragment>
                 <Link to='/login'>
                   <Button extraClasses='w-full'>Login</Button>
