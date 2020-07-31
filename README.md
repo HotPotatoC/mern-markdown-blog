@@ -76,31 +76,32 @@ The ReactJs application will run on _http://localhost:3000_ and the Express appl
 # Tools & Packages
 
 ## Client-Side
-| Package Name     | Description                                                                | Version |
-|------------------|----------------------------------------------------------------------------|---------|
-| axios            | Promise based HTTP client for the browser and node.js                      | ^0.19.2 |
-| highlight.js     | Syntax highlighting with language autodetection.                           | ^10.1.2 |
-| moment           | Parse, validate, manipulate, and display dates                             | ^2.27.0 |
-| react-feather    | React component for Feather icons                                          | ^2.0.8  |
-| react-highlight  | React component for syntax highlighting                                    | ^0.12.0 |
-| react-markdown   | Renders Markdown as React components                                       | ^4.3.1  |
-| react-moment     | React component for the moment date library.                               | ^0.9.7  |
-| react-router-dom | DOM bindings for React Router                                              | ^5.2.0  |
-| tailwindcss      | A utility-first CSS framework for rapidly building custom user interfaces. | ^1.5.2  |
+
+| Package Name                            | Description                                                                | Version |
+| --------------------------------------- | -------------------------------------------------------------------------- | ------- |
+| [axios](https://github.com/axios/axios) | Promise based HTTP client for the browser and node.js                      | ^0.19.2 |
+| [highlight.js](https://highlightjs.org/)                            | Syntax highlighting with language autodetection.                           | ^10.1.2 |
+| [moment](https://momentjs.com)                                  | Parse, validate, manipulate, and display dates                             | ^2.27.0 |
+| [react-feather](https://github.com/feathericons/react-feather)                           | React component for Feather icons                                          | ^2.0.8  |
+| [react-highlight](https://github.com/akiran/react-highlight)                         | React component for syntax highlighting                                    | ^0.12.0 |
+| [react-markdown](https://github.com/rexxars/react-markdown)                          | Renders Markdown as React components                                       | ^4.3.1  |
+| [react-moment](https://github.com/headzoo/react-moment)                            | React component for the moment date library.                               | ^0.9.7  |
+| [react-router-dom](https://github.com/ReactTraining/react-router)                        | DOM bindings for React Router                                              | ^5.2.0  |
+| [tailwindcss](https://tailwindcss.com)                             | A utility-first CSS framework for rapidly building custom user interfaces. | ^1.5.2  |
 
 ## Server-Side
 
 | Package Name         | Description                                                                     | Version |
-|----------------------|---------------------------------------------------------------------------------|---------|
-| @hapi/joi            | Object schema validation                                                        | ^17.1.1 |
-| @typegoose/typegoose | Define Mongoose models using TypeScript classes                                 | ^7.3.0  |
-| bcrypt               | A bcrypt library for NodeJS.                                                    | ^5.0.0  |
-| cors                 | Node.js CORS middleware                                                         | ^2.8.5  |
-| dotenv               | Loads environment variables from .env file                                      | ^8.2.0  |
-| express              | Fast, unopinionated, minimalist web framework                                   | ^4.17.1 |
-| jsonwebtoken         | JSON Web Token implementation (symmetric and asymmetric)                        | ^8.5.1  |
-| mongoose             | Mongoose MongoDB ODM                                                            | 5.9.22  |
-| mongoose-paginate-v2 | A cursor based custom pagination library for Mongoose with customizable labels. | ^1.3.9  |
-| morgan               | HTTP request logger middleware for node.js                                      | ^1.10.0 |
-| slugify              | Slugifies a String                                                              | ^1.4.4  |
-| nodemon              | Simple monitor script for use during development of a node.js app.              | ^2.0.4  |
+| -------------------- | ------------------------------------------------------------------------------- | ------- |
+| [@hapi/joi](https://github.com/sideway/joi)            | Object schema validation                                                        | ^17.1.1 |
+| [@typegoose/typegoose](https://typegoose.github.io/typegoose/) | Define Mongoose models using TypeScript classes                                 | ^7.3.0  |
+| [bcrypt](https://github.com/kelektiv/node.bcrypt.js)               | A bcrypt library for NodeJS.                                                    | ^5.0.0  |
+| [cors](https://github.com/expressjs/cors)                 | Node.js CORS middleware                                                         | ^2.8.5  |
+| [dotenv](https://github.com/motdotla/dotenv)               | Loads environment variables from .env file                                      | ^8.2.0  |
+| [express](http://expressjs.com/)              | Fast, unopinionated, minimalist web framework                                   | ^4.17.1 |
+| [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)         | JSON Web Token implementation (symmetric and asymmetric)                        | ^8.5.1  |
+| [mongoose](https://mongoosejs.com)             | Mongoose MongoDB ODM                                                            | 5.9.22  |
+| [mongoose-paginate-v2](https://github.com/aravindnc/mongoose-paginate-v2) | A cursor based custom pagination library for Mongoose with customizable labels. | ^1.3.9  |
+| [morgan](https://github.com/expressjs/morgan)               | HTTP request logger middleware for node.js                                      | ^1.10.0 |
+| [slugify](https://github.com/simov/slugify)              | Slugifies a String                                                              | ^1.4.4  |
+| [nodemon](https://nodemon.io)              | Simple monitor script for use during development of a node.js app.              | ^2.0.4  |
