@@ -9,7 +9,7 @@ A blogging application made with the MERN stack with **Dockerization** and **Typ
 
 ![App Screenshot](./screenshot.png)
 
-# Getting Started
+# 💻 Getting Started
 
 Cloning the repository
 
@@ -19,7 +19,7 @@ $ git clone https://github.com/HotPotatoC/mern-markdown-blog.git
 $ cd mern-markdown-blog
 ```
 
-## Running with docker-compose
+## 🐳 Running with docker-compose
 
 To start the application with docker, make sure you have [**docker-compose**](https://docs.docker.com/compose/install/) installed.
 
@@ -47,7 +47,7 @@ To stop the application run
 $ docker-compose stop
 ```
 
-## Running without docker-compose
+## 💽 Running without docker-compose
 
 To run the application without using docker. Run your MongoDB service
 
@@ -73,9 +73,9 @@ $ yarn start
 
 The ReactJs application will run on _http://localhost:3000_ and the Express application will run on _http://localhost:5000_
 
-# Tools & Packages
+# 🛠 Tools & Packages
 
-## Client-Side
+### Client-Side
 
 | Package Name                            | Description                                                                | Version |
 | --------------------------------------- | -------------------------------------------------------------------------- | ------- |
@@ -89,7 +89,7 @@ The ReactJs application will run on _http://localhost:3000_ and the Express appl
 | [react-router-dom](https://github.com/ReactTraining/react-router)                        | DOM bindings for React Router                                              | ^5.2.0  |
 | [tailwindcss](https://tailwindcss.com)                             | A utility-first CSS framework for rapidly building custom user interfaces. | ^1.5.2  |
 
-## Server-Side
+### Server-Side
 
 | Package Name         | Description                                                                     | Version |
 | -------------------- | ------------------------------------------------------------------------------- | ------- |
